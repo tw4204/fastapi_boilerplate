@@ -12,3 +12,12 @@ services:
       '--host', '0.0.0.0',
       '--port', $APP_PORT,
     ]
+  postgres:
+    image: postgres:12.1
+    volumes:
+      - $PWD/volumes/db_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=$DATABASE_USER
+      - POSTGRES_PASSWORD=$DATABASE_PASS
+      - POSTGRES_DB=$DATABASE_NAME
+
